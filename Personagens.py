@@ -16,6 +16,11 @@ class Heroi:
         def getNome(): return self.nome
         
         # SETTERS
-        def setVida(self, pt_vida): self.vida = pt_vida
+        def setVida(self, h_vida): self.vida = h_vida
+        def setAtaque(self, h_ataque): self.ataque = h_ataque
+        def setSorte(self, h_sorte): self.sorte = h_sorte
+        def setDefesa(self, h_defesa): self.defesa = h_defesa
+        def setMagia(self, h_magia): self.magia = h_magia
+        def setNome(self, h_nome): self.nome = h_nome
         
         
