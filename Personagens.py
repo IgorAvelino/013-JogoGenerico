@@ -1,3 +1,7 @@
+import random
+import time
+import pprint
+
 class Heroi:
     def __init__(self, h_vida, h_ataque, h_sorte, h_defesa, h_magia, h_nome) -> None:
         self.vida = h_vida
@@ -22,5 +26,6 @@ class Heroi:
         def setDefesa(self, h_defesa): self.defesa = h_defesa
         def setMagia(self, h_magia): self.magia = h_magia
         def setNome(self, h_nome): self.nome = h_nome
-        
+
+    
         
