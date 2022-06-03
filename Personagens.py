@@ -1,8 +1,6 @@
 import random
 import time
 import pprint
-from tkinter.filedialog import askopenfilename
-from xmlrpc.client import boolean
 
 
 class Heroi:
@@ -50,7 +48,7 @@ def criar_heroi():
         ataque_heroi = 100
         defesa_heroi = 50
     
-    print('\nVamos ver sua sorte...\nJogue um dado, o número será a quantidade de sorte do jogador...')
+    print('\nVamos ver sua sorte...Jogue um dado, o número será a quantidade de sorte do jogador...')
     input('[Enter] -> Rolar dado')
     print('\nRolando...')
     time.sleep(.5)
@@ -138,8 +136,7 @@ class Boss(Inimigo):
     def set_super(self, i_super): self.super = i_super
 
 
-def gerar_inimigo(lv_boss=boolean):
-    lista = []
+def gerar_inimigo(lv_boss=bool):
     arquivo = open("adjetivos.txt","r")
     linhas = arquivo.readlines()
     adjetivo = linhas[random.randint(0, len(linhas)-1)][:-1]
