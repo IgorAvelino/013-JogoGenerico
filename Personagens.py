@@ -13,23 +13,23 @@ class Heroi:
         self.nome = h_nome
         
     # GETTERS
-    def getVida(self): return self.vida
-    def getAtaquef(self):return self.ataquef
-    def getSorte(self): return self.sorte
-    def getDefesa(self): return self.defesa
-    def getMagia(self): return self.magia
-    def getNome(self): return self.nome
+    def get_vida(self): return self.vida
+    def get_ataquef(self):return self.ataquef
+    def get_sorte(self): return self.sorte
+    def get_defesa(self): return self.defesa
+    def get_magia(self): return self.magia
+    def get_nome(self): return self.nome
     
     # SETTERS
-    def setVida(self, h_vida): self.vida = h_vida
-    def setAtaquef(self, h_ataque): self.ataquef = h_ataque
-    def setSorte(self, h_sorte): self.sorte = h_sorte
-    def setDefesa(self, h_defesa): self.defesa = h_defesa
-    def setMagia(self, h_magia): self.magia = h_magia
-    def setNome(self, h_nome): self.nome = h_nome
+    def set_vida(self, h_vida): self.vida = h_vida
+    def set_ataquef(self, h_ataque): self.ataquef = h_ataque
+    def set_sorte(self, h_sorte): self.sorte = h_sorte
+    def set_defesa(self, h_defesa): self.defesa = h_defesa
+    def set_magia(self, h_magia): self.magia = h_magia
+    def set_nome(self, h_nome): self.nome = h_nome
 
 
-def criarClasse():
+def criar_classe():
     print('--------' * 10)
     print('Com qual modo de jogo você se identifica mais?')
     print('[E] Estratégico\n[L] Lutador')
@@ -84,4 +84,16 @@ def criarClasse():
     print(f'Bem vindo ao meu jogo {nome_heroi}!! Espero que aproveite!')
     
     return (ataque_heroi, sorte, defesa_heroi, magia_heroi, nome_heroi)
+
+
+# INIMIGO
+class Inimigo:
+    def __init__(self, i_vida, i_ataque, i_especial, i_chance, i_nome) -> None:
+        self.vida = i_vida
+        self.ataque = i_ataque
+        self.especial = i_especial
+        self.chance = i_chance
+        self.nome = i_nome
+        
+    # GETTERS
     
