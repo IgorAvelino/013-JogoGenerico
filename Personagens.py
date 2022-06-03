@@ -12,21 +12,21 @@ class Heroi:
         self.magia = h_magia
         self.nome = h_nome
         
-        # GETTERS
-        def getVida(): return self.vida
-        def getAtaquef():return self.ataquef
-        def getSorte(): return self.sorte
-        def getDefesa(): return self.defesa
-        def getMagia(): return self.magia
-        def getNome(): return self.nome
-        
-        # SETTERS
-        def setVida(self, h_vida): self.vida = h_vida
-        def setAtaquef(self, h_ataque): self.ataquef = h_ataque
-        def setSorte(self, h_sorte): self.sorte = h_sorte
-        def setDefesa(self, h_defesa): self.defesa = h_defesa
-        def setMagia(self, h_magia): self.magia = h_magia
-        def setNome(self, h_nome): self.nome = h_nome
+    # GETTERS
+    def getVida(self): return self.vida
+    def getAtaquef(self):return self.ataquef
+    def getSorte(self): return self.sorte
+    def getDefesa(self): return self.defesa
+    def getMagia(self): return self.magia
+    def getNome(self): return self.nome
+    
+    # SETTERS
+    def setVida(self, h_vida): self.vida = h_vida
+    def setAtaquef(self, h_ataque): self.ataquef = h_ataque
+    def setSorte(self, h_sorte): self.sorte = h_sorte
+    def setDefesa(self, h_defesa): self.defesa = h_defesa
+    def setMagia(self, h_magia): self.magia = h_magia
+    def setNome(self, h_nome): self.nome = h_nome
 
 
 def criarClasse():
