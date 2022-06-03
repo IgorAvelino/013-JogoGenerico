@@ -1,6 +1,7 @@
 import random
 import time
 import pprint
+from xml.dom import InvalidAccessErr
 
 
 class Heroi:
@@ -96,4 +97,17 @@ class Inimigo:
         self.nome = i_nome
         
     # GETTERS
+    def get_vida(self): return self.vida
+    def get_ataque(self): return self.ataque
+    def get_especial(self): return self.especial
+    def get_chance(self): return self.chance
+    def get_nome(self): return self.nome
+    
+    # SETTERS
+    def set_vida(self, i_vida): self.vida = i_vida
+    def set_ataque(self, i_ataque): self.ataque = i_ataque
+    def set_especial(self, i_especial): self.especial = i_especial
+    def set_chance(self, i_chance): self.chance = i_chance
+    def set_nome(self, i_nome): self.nome = i_nome
+    
     
