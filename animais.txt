@@ -1,9 +1,9 @@
-Cão
+Cachorro
 Felino
-Pássaro
+Passaro
 Gargula
-Corpo
+Humano
 Urso
-Onça
+Pantera
 Tigre
-Chupacu
+Chupacu 
