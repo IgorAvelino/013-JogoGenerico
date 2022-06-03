@@ -122,3 +122,15 @@ class Inimigo:
     def set_chance(self, i_chance): self.chance = i_chance
     def set_nome(self, i_nome): self.nome = i_nome
     
+    
+class Boss(Inimigo):
+    def __init__(self, i_vida, i_ataque, i_especial, i_chance, i_nome, i_super) -> None:
+        super().__init__(i_vida, i_ataque, i_especial, i_chance, i_nome)
+        
+        self.super = i_super
+    
+    # GETERS
+    def get_super(self): return self.super
+    
+    # SETERS
+    def set_super(self, i_super): self.super = i_super
