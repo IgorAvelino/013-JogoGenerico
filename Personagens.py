@@ -1,16 +1,16 @@
 import random
 import time
 import pprint
-from xml.dom import InvalidAccessErr
 
 
 class Heroi:
-    def __init__(self, h_vida, h_ataquef, h_sorte, h_defesa, h_magia, h_nome) -> None:
+    def __init__(self, h_vida, h_ataquef, h_sorte, h_defesa, h_magia, h_arma, h_nome) -> None:
         self.vida = h_vida
         self.ataquef = h_ataquef
         self.sorte = h_sorte
         self.defesa = h_defesa
         self.magia = h_magia
+        self.arma = h_arma
         self.nome = h_nome
         
     # GETTERS
@@ -59,23 +59,35 @@ def criar_classe():
     print('--------' * 10)
     print('Qual arma você prefere usar?', end='')
     print("""
-    [M] Machado
-    [E] Espada
-    [A] Arco e Flecha
-    [C] Cajado de Magia""")
+[M] Machado
+[E] Espada
+[A] Arco e Flecha
+[C] Cajado de Magia\n""")
     op = str(input('[>>] Digite Aqui: ')).upper()
     
     while op != 'E' and op != 'A' and op != 'M' and op != 'C':
         print('<<< Opção Inválida >>>')
         op = str(input('\n[>>] Digite aqui: ')).upper()
     
-    if op == 'M' or op == 'E' or op == 'A':
+    if op == 'M':
         ataque_heroi += 100
         magia_heroi = 50
+        arma_heroi = 'Machado'
+    
+    elif op == 'E':
+        ataque_heroi += 100
+        magia_heroi = 50
+        arma_heroi = 'Espada'
+    
+    elif op == 'A':
+        ataque_heroi += 100
+        magia_heroi = 50
+        arma_heroi = 'Arco'
     
     elif op == 'C':
         ataque_heroi += 50
         magia_heroi = 200
+        arma_heroi = 'Cajado'
     
     print('\n')
     print('--------' * 10)
@@ -84,7 +96,7 @@ def criar_classe():
     
     print(f'Bem vindo ao meu jogo {nome_heroi}!! Espero que aproveite!')
     
-    return (ataque_heroi, sorte, defesa_heroi, magia_heroi, nome_heroi)
+    return (ataque_heroi, sorte, defesa_heroi, magia_heroi, arma_heroi, nome_heroi)
 
 
 # INIMIGO
@@ -109,5 +121,4 @@ class Inimigo:
     def set_especial(self, i_especial): self.especial = i_especial
     def set_chance(self, i_chance): self.chance = i_chance
     def set_nome(self, i_nome): self.nome = i_nome
-    
     
