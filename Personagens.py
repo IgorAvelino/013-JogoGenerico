@@ -1,6 +1,8 @@
 import random
 import time
 import pprint
+from tkinter.filedialog import askopenfilename
+from xmlrpc.client import boolean
 
 
 class Heroi:
@@ -30,7 +32,7 @@ class Heroi:
     def set_nome(self, h_nome): self.nome = h_nome
 
 
-def criar_classe():
+def criar_heroi():
     print('--------' * 10)
     print('Com qual modo de jogo você se identifica mais?')
     print('[E] Estratégico\n[L] Lutador')
@@ -134,3 +136,33 @@ class Boss(Inimigo):
     
     # SETERS
     def set_super(self, i_super): self.super = i_super
+
+
+def gerar_inimigo(lv_boss=boolean):
+    lista = []
+    arquivo = open("adjetivos.txt","r")
+    linhas = arquivo.readlines()
+    adjetivo = linhas[random.randint(0, len(linhas)-1)][:-1]
+    arquivo.close
+    
+    arquivo = open("animais.txt","r")
+    linhas = arquivo.readlines()
+    animal = linhas[random.randint(0, len(linhas)-1)][:-1]
+    arquivo.close
+    
+    if lv_boss == False:
+        i_vida = random.randint(50, 100)
+        i_ataque = random.randint(1, 10)
+        i_especial = random.randint(10, 20)
+        i_chance = random.randint(1, 10)
+        
+        return Inimigo(i_vida, i_ataque, i_especial, i_chance, animal+" "+adjetivo)
+
+    else:
+        b_vida = random.randint(150, 200)
+        b_ataque = random.randint(20, 40)
+        b_especial = random.randint(50, 60)
+        b_chance = random.randint(1, 8)
+        b_super = random.randint(100, 200)
+        
+        return Boss(b_vida, b_ataque, b_especial, b_chance, animal+" "+adjetivo, b_super)
