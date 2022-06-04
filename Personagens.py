@@ -1,3 +1,4 @@
+import math
 import random
 import time
 import pprint
@@ -163,3 +164,35 @@ def gerar_inimigo(lv_boss=bool):
         b_super = random.randint(100, 200)
         
         return Boss(b_vida, b_ataque, b_especial, b_chance, animal+" "+adjetivo, b_super)
+
+
+def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
+    print(f'\n<<<{nome} está se preparando para atacar!>>>')
+    acerto = random.randint(0, 10)
+    
+    if chance_acerto >= acerto:
+        print(f'\n<<<{nome} te acerta um golpe!>>>')
+        perda = valor_ataque - defesa
+        print(f'\n<<<Você perde {perda} pontos de vida deste ataque!>>>')
+        return math.ceil(perda)
+    
+    else:
+        print(f'\n<<<{nome} erra o golpe!>>>')
+        return 0
+
+
+def chance_acerto(sorte):
+    acerto = random.randint(0,4)
+    if sorte < acerto:
+        print('\n<<<Você erra o ataque!>>>')
+        return False
+
+    else:
+        print('\n<<<Você acerta o inimigo>>>')
+        return True
+
+
+def esta_morto(vida):
+    if vida < 1: return True
+    else: return False
+
