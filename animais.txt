@@ -6,7 +6,7 @@ Humano
 Urso
 Pantera
 Tigre
-Chupacu 
+Chupacu
 Mastodonte
 Dente de Sabre
-Mamaco
+Mamaco 
