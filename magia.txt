@@ -1,0 +1,4 @@
+Cajado de Madeira,10,
+Cajado de Ruby,20,
+Cajado de Saphira,30,
+Cajado de Esmeralda Reluzente,50,

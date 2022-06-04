@@ -1,4 +1,3 @@
-Trevo de 4 Folhas,20,sorte,
+Trevo de 4 Folhas,6,sorte,
 Frasco de cura,50,vida,
-Medalha da Guarda,40,defesa,
 Pedra de Tseldora,26,magia

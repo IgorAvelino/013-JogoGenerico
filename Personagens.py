@@ -5,9 +5,9 @@ import pprint
 
 
 class Heroi:
-    def __init__(self, h_vida, h_ataquef, h_sorte, h_defesa, h_magia, h_arma, h_nome) -> None:
+    def __init__(self, h_vida, h_ataque, h_sorte, h_defesa, h_magia, h_arma, h_nome) -> None:
         self.vida = h_vida
-        self.ataquef = h_ataquef
+        self.ataque = h_ataque
         self.sorte = h_sorte
         self.defesa = h_defesa
         self.magia = h_magia
@@ -16,7 +16,7 @@ class Heroi:
         
     # GETTERS
     def get_vida(self): return self.vida
-    def get_ataquef(self):return self.ataquef
+    def get_ataquef(self):return self.ataque
     def get_sorte(self): return self.sorte
     def get_defesa(self): return self.defesa
     def get_magia(self): return self.magia
@@ -24,7 +24,7 @@ class Heroi:
     
     # SETTERS
     def set_vida(self, h_vida): self.vida = h_vida
-    def set_ataquef(self, h_ataque): self.ataquef = h_ataque
+    def set_ataquef(self, h_ataque): self.ataque = h_ataque
     def set_sorte(self, h_sorte): self.sorte = h_sorte
     def set_defesa(self, h_defesa): self.defesa = h_defesa
     def set_magia(self, h_magia): self.magia = h_magia
@@ -196,3 +196,55 @@ def esta_morto(vida):
     if vida < 1: return True
     else: return False
 
+
+def loot(sorte, personagem):
+    chance_drop = random.randint(0, 4)
+    if sorte < chance_drop:
+        print('\n>>> Você não encontra nenhum drop desse inimigo <<<')
+    
+    else:
+        num_tabela = random.randint(0, 3)
+        lista_drops = ['ataque', 'defesa', 'magia', 'itens']
+        tipo_item = lista_drops[num_tabela]
+        
+        arquivo = open(f"{tipo_item}.txt","r")
+        linhas = arquivo.readlines()
+        
+        print('\nO inimigo deixou cair no chão...')
+        
+        item = random.randint(0, len(linhas)-1)
+        
+        linha_item = linhas[item]
+        
+        separar_linha_item = linha_item.split(",")
+        
+        nome = separar_linha_item[0]
+        valor = int(separar_linha_item[1])
+        
+        print(f'[Item]>>> {nome} <<<')
+        
+        if tipo_item == 'ataque':
+            personagem.set_ataque(personagem.get_ataque()+valor)
+            print(f'\n<<< Seu novo Ataque é {personagem.get_ataque()}>>>')
+        
+        elif tipo_item == 'defesa':
+            personagem.set_defesa(personagem.get_defesa()+valor)
+            print(f'\n<<< Sua nova defesa é {personagem.get_defesa()}>>>')
+        
+        elif tipo_item == 'magia':
+            personagem.set_magia(personagem.get_magia()+valor)
+            print(f'\n<<< Seu novo nível de magia é {personagem.get_magia()}>>>')
+        
+        else:
+            if separar_linha_item[2] == 'sorte':
+                personagem.set_sorte(personagem.get_sorte()+valor)
+                print(f'\n<<< Sua nova sorte vale {personagem.get_sorte()}>>>')
+            
+            elif separar_linha_item[2] == 'vida':
+                personagem.set_vida(personagem.get_vida()+valor)
+                print(f'\n<<< Seus pontos de vida agora são {personagem.get_vida()}>>>')
+                
+            elif separar_linha_item[2] == 'magia':
+                personagem.set_magia(personagem.get_magia()+valor)
+                print(f'\n<<< Seu novo nível de magia é {personagem.get_magia()}>>>')
+        

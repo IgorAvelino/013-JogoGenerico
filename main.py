@@ -15,3 +15,5 @@ inimigo1 = Personagens.gerar_inimigo(False)
 
 print('\nStatus Inimigo: ')
 pprint(vars(inimigo1))
+
+Personagens.loot(personagem.get_sorte(), personagem)
