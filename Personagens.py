@@ -1,7 +1,7 @@
 import math
+from operator import truediv
 import random
 import time
-import pprint
 
 
 class Heroi:
@@ -20,6 +20,7 @@ class Heroi:
     def get_sorte(self): return self.sorte
     def get_defesa(self): return self.defesa
     def get_magia(self): return self.magia
+    def get_arma(self): return self.arma
     def get_nome(self): return self.nome
     
     # SETTERS
@@ -28,6 +29,7 @@ class Heroi:
     def set_sorte(self, h_sorte): self.sorte = h_sorte
     def set_defesa(self, h_defesa): self.defesa = h_defesa
     def set_magia(self, h_magia): self.magia = h_magia
+    def set_arma(self, h_arma): self.arma = h_arma
     def set_nome(self, h_nome): self.nome = h_nome
 
 
@@ -160,18 +162,18 @@ def gerar_inimigo(lv_boss=bool):
     
     if lv_boss == False:
         i_vida = random.randint(100, 350)
-        i_ataque = random.randint(40, 150)
+        i_ataque = random.randint(30, 120)
         i_especial = random.randint(50, 170)
         i_chance = random.randint(1, 10)
         
         return Inimigo(i_vida, i_ataque, i_especial, i_chance, animal+" "+adjetivo)
 
     else:
-        b_vida = random.randint(150, 200)
-        b_ataque = random.randint(20, 40)
-        b_especial = random.randint(50, 60)
+        b_vida = random.randint(200, 450)
+        b_ataque = random.randint(50, 200)
+        b_especial = random.randint(100, 230)
         b_chance = random.randint(1, 8)
-        b_super = random.randint(100, 200)
+        b_super = random.randint(100, 300)
         
         return Boss(b_vida, b_ataque, b_especial, b_chance, animal+" "+adjetivo, b_super)
 
@@ -282,11 +284,26 @@ def batalha(inimigo, personagem):
     print('--------' * 10)
     time.sleep(2)
     print(f'<<< {inimigo.get_nome()} está se preparando para uma batalha!! >>>')
+    print()
+    print(f"""Status do Inimigo:
+Nome: {inimigo.get_nome()}
+Vida: {inimigo.get_vida()}
+Ataque {inimigo.get_ataque()}
+Especial: {inimigo.get_especial()}
+Chance de acerto: {inimigo.get_chance()}
+Super Golpe: """, end='')
+    
+    try:
+        print(inimigo.get_super())
+    except AttributeError:
+        print('Não Possui')
     
     batalha = True
     
     while batalha:
         time.sleep(.5)
+        print()
+        print('--------' * 10)
         print('Escolha seu ataque:')
         time.sleep(.5)
         print('[A] Arma de combate\n[C] Cajado de Magia')
@@ -333,7 +350,7 @@ def batalha(inimigo, personagem):
 
             else:
                 time.sleep(2)
-                print(f'\n>>> A vida restante do seu personagem é {personagem.get_vida()}!!<<<')
+                print(f'\n>>> A vida restante de {personagem.get_nome()} é {personagem.get_vida()}!!<<<')
 
         else:
             batalha = False
@@ -357,3 +374,17 @@ def fim_de_jogo(inimigo_morto=bool):
         print('\n========== FIM DE JOGO ==========')
         time.sleep(.5)
         exit()
+
+
+def gerar_level(personagem, level):
+    num_max_de_inimigos = math.ceil(level * 5)
+    
+    for i in range(0, num_max_de_inimigos):
+        chance_boss = random.randint(1,10)
+        if chance_boss > 7:
+            lv_boss = True
+        
+        else: lv_boss = False
+        
+        luta = batalha(gerar_inimigo(lv_boss), personagem)
+        fim_de_jogo(luta)
