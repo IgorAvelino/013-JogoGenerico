@@ -161,7 +161,7 @@ def gerar_inimigo(lv_boss=bool):
     
     if lv_boss == False:
         i_vida = random.randint(100, 350)
-        i_ataque = random.randint(30, 120)
+        i_ataque = random.randint(50, 120)
         i_especial = random.randint(50, 170)
         i_chance = random.randint(1, 10)
         
@@ -169,7 +169,7 @@ def gerar_inimigo(lv_boss=bool):
 
     else:
         b_vida = random.randint(200, 450)
-        b_ataque = random.randint(50, 200)
+        b_ataque = random.randint(80, 160)
         b_especial = random.randint(100, 230)
         b_chance = random.randint(1, 8)
         b_super = random.randint(100, 300)

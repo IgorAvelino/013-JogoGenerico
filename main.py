@@ -18,9 +18,13 @@ if __name__ == "__main__":
  
     input('[ENTER]')
     
-    print('\n<<< Vamos começar pelo primeiro level >>>')
+    print('\n--------- <<< LEVEL 1 >>> ---------')
     Personagens.gerar_level(personagem, 1)
+    
+    print('\n--------- <<< LEVEL 2 >>> ---------')
     Personagens.gerar_level(personagem, 2)
+    
+    print('\n --------- <<< LEVEL FINAL >>> ---------')
     Personagens.gerar_level(personagem, 3)
     
     print('======================================================')
