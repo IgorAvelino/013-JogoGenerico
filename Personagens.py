@@ -179,12 +179,12 @@ def gerar_inimigo(lv_boss=bool):
 
 def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
     time.sleep(2)
-    print(f'\n<<<{nome} está se preparando para atacar!>>>')
+    print(f'\n<<< {nome} está se preparando para atacar! >>>')
     acerto = random.randint(0, 10)
     
     if chance_acerto >= acerto:
         time.sleep(2)
-        print(f'\n<<<{nome} te acerta um golpe!>>>')
+        print(f'\n<<< {nome} te acerta um golpe! >>>')
         
         if valor_ataque <= defesa:
             perda = 0
@@ -192,12 +192,12 @@ def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
         else: perda = valor_ataque - defesa
         
         time.sleep(2)
-        print(f'\n<<<Você perde {perda} pontos de vida deste ataque!>>>')
+        print(f'\n<<< Você perde {perda} pontos de vida deste ataque! >>>')
         return math.ceil(perda)
     
     else:
         time.sleep(2)
-        print(f'\n<<<{nome} erra o golpe!>>>')
+        print(f'\n<<< {nome} erra o golpe! >>>')
         return 0
 
 
@@ -209,7 +209,7 @@ def chance_acerto(sorte):
 
     else:
         time.sleep(2)
-        print('\n<<< Você acerta o inimigo >>>')
+        print('\n>>> Você acerta o inimigo <<<')
         return True
 
 
