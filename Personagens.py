@@ -159,9 +159,9 @@ def gerar_inimigo(lv_boss=bool):
     arquivo.close
     
     if lv_boss == False:
-        i_vida = random.randint(100, 300)
-        i_ataque = random.randint(20, 25)
-        i_especial = random.randint(10, 20)
+        i_vida = random.randint(100, 350)
+        i_ataque = random.randint(40, 150)
+        i_especial = random.randint(50, 170)
         i_chance = random.randint(1, 10)
         
         return Inimigo(i_vida, i_ataque, i_especial, i_chance, animal+" "+adjetivo)
@@ -184,7 +184,12 @@ def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
     if chance_acerto >= acerto:
         time.sleep(2)
         print(f'\n<<<{nome} te acerta um golpe!>>>')
-        perda = valor_ataque - defesa
+        
+        if valor_ataque <= defesa:
+            perda = 0
+        
+        else: perda = valor_ataque - defesa
+        
         time.sleep(2)
         print(f'\n<<<Você perde {perda} pontos de vida deste ataque!>>>')
         return math.ceil(perda)
@@ -196,15 +201,14 @@ def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
 
 
 def chance_acerto(sorte):
-    acerto = random.randint(0,4)
+    acerto = random.randint(0,5)
     if sorte < acerto:
         time.sleep(2)
-        print('\n<<<Você erra o ataque!>>>')
         return False
 
     else:
         time.sleep(2)
-        print('\n<<<Você acerta o inimigo>>>')
+        print('\n<<< Você acerta o inimigo >>>')
         return True
 
 
@@ -214,7 +218,7 @@ def esta_morto(vida):
 
 
 def loot(sorte, personagem):
-    chance_drop = random.randint(0, 4)
+    chance_drop = random.randint(0, 5)
     if sorte < chance_drop:
         print('\n>>> Você não encontra nenhum drop desse inimigo <<<')
     
@@ -274,8 +278,7 @@ def loot(sorte, personagem):
         
 
 def batalha(inimigo, personagem):
-    time.sleep(2)
-    print('\n')
+    print()
     print('--------' * 10)
     time.sleep(2)
     print(f'<<< {inimigo.get_nome()} está se preparando para uma batalha!! >>>')
@@ -310,7 +313,7 @@ def batalha(inimigo, personagem):
         if acerto == True:
             inimigo.set_vida(inimigo.get_vida() - dano)
             time.sleep(2)
-            print(f'\n>>> Você acerta o inimigo deixando ele com {inimigo.get_vida()} pontos de vida! <<<')
+            print(f'\n>>> {inimigo.get_nome()} está com {inimigo.get_vida()} pontos de vida! <<<')
         
         
         else:
@@ -344,8 +347,8 @@ def batalha(inimigo, personagem):
 
 def fim_de_jogo(inimigo_morto=bool):
     if inimigo_morto == True:
-        time.sleep(.5)
-        print('\n<< Está na hora de outra batalha! >>')
+        time.sleep(1.5)
+        print('\n<< Você segue em frente em sua jornada >>')
     
     else:
         time.sleep(.5)
