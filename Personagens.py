@@ -34,7 +34,9 @@ class Heroi:
 def criar_heroi():
     print('--------' * 10)
     print('Com qual modo de jogo você se identifica mais?')
+    time.sleep(.5)
     print('[E] Estratégico\n[L] Lutador')
+    time.sleep(.5)
     op = str(input('\n[>>] Digite aqui: ')).upper()
 
     while op != 'E' and op != 'L':
@@ -49,21 +51,26 @@ def criar_heroi():
         ataque_heroi = 100
         defesa_heroi = 50
     
+    time.sleep(.5)
     print('\nVamos ver sua sorte...Jogue um dado, o número será a quantidade de sorte do jogador...')
+    time.sleep(.5)
     input('[Enter] -> Rolar dado')
     print('\nRolando...')
-    time.sleep(.5)
+    time.sleep(2)
     sorte = random.randint(1, 10)
     print(f'\n<<< Sua sorte é {sorte} de um total de 10! >>>')
 
+    time.sleep(.5)
     print('\n')
     print('--------' * 10)
     print('Qual arma você prefere usar?', end='')
+    time.sleep(.5)
     print("""
 [M] Machado
 [E] Espada
 [A] Arco e Flecha
 [C] Cajado de Magia\n""")
+    time.sleep(.5)
     op = str(input('[>>] Digite Aqui: ')).upper()
     
     while op != 'E' and op != 'A' and op != 'M' and op != 'C':
@@ -90,11 +97,14 @@ def criar_heroi():
         magia_heroi = 200
         arma_heroi = 'cajado'
     
+    time.sleep(.5)
     print('\n')
     print('--------' * 10)
     print('Qual o seu nome heroi?')
+    time.sleep(.5)
     nome_heroi = str(input('[>>] Digite seu nome: '))
     
+    time.sleep(.5)
     print(f'Bem vindo ao meu jogo {nome_heroi}!! Espero que aproveite!')
     
     return (ataque_heroi, sorte, defesa_heroi, magia_heroi, arma_heroi, nome_heroi)
@@ -149,8 +159,8 @@ def gerar_inimigo(lv_boss=bool):
     arquivo.close
     
     if lv_boss == False:
-        i_vida = random.randint(50, 100)
-        i_ataque = random.randint(10, 15)
+        i_vida = random.randint(100, 300)
+        i_ataque = random.randint(20, 25)
         i_especial = random.randint(10, 20)
         i_chance = random.randint(1, 10)
         
@@ -167,16 +177,20 @@ def gerar_inimigo(lv_boss=bool):
 
 
 def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
+    time.sleep(2)
     print(f'\n<<<{nome} está se preparando para atacar!>>>')
     acerto = random.randint(0, 10)
     
     if chance_acerto >= acerto:
+        time.sleep(2)
         print(f'\n<<<{nome} te acerta um golpe!>>>')
         perda = valor_ataque - defesa
+        time.sleep(2)
         print(f'\n<<<Você perde {perda} pontos de vida deste ataque!>>>')
         return math.ceil(perda)
     
     else:
+        time.sleep(2)
         print(f'\n<<<{nome} erra o golpe!>>>')
         return 0
 
@@ -184,10 +198,12 @@ def ataque_inimigo(chance_acerto, valor_ataque, nome, defesa):
 def chance_acerto(sorte):
     acerto = random.randint(0,4)
     if sorte < acerto:
+        time.sleep(2)
         print('\n<<<Você erra o ataque!>>>')
         return False
 
     else:
+        time.sleep(2)
         print('\n<<<Você acerta o inimigo>>>')
         return True
 
@@ -210,6 +226,7 @@ def loot(sorte, personagem):
         arquivo = open(f"{tipo_item}.txt","r")
         linhas = arquivo.readlines()
         
+        
         print('\nO inimigo deixou cair no chão...')
         
         item = random.randint(0, len(linhas)-1)
@@ -221,50 +238,64 @@ def loot(sorte, personagem):
         nome = separar_linha_item[0]
         valor = int(separar_linha_item[1])
         
+        time.sleep(2)
         print(f'[Item]>>> {nome} <<<')
         
         if tipo_item == 'ataque':
             personagem.set_ataque(personagem.get_ataque()+valor)
-            print(f'\n<<< Seu novo Ataque é {personagem.get_ataque()}>>>')
+            time.sleep(2)
+            print(f'\n<<< Seu novo Ataque é {personagem.get_ataque()} >>>')
         
         elif tipo_item == 'defesa':
             personagem.set_defesa(personagem.get_defesa()+valor)
-            print(f'\n<<< Sua nova defesa é {personagem.get_defesa()}>>>')
+            time.sleep(2)
+            print(f'\n<<< Sua nova defesa é {personagem.get_defesa()} >>>')
         
         elif tipo_item == 'magia':
             personagem.set_magia(personagem.get_magia()+valor)
-            print(f'\n<<< Seu novo nível de magia é {personagem.get_magia()}>>>')
+            time.sleep(2)
+            print(f'\n<<< Seu novo nível de magia é {personagem.get_magia()} >>>')
         
         else:
             if separar_linha_item[2] == 'sorte':
                 personagem.set_sorte(personagem.get_sorte()+valor)
-                print(f'\n<<< Sua nova sorte vale {personagem.get_sorte()}>>>')
+                time.sleep(2)
+                print(f'\n<<< Sua nova sorte vale {personagem.get_sorte()} >>>')
             
             elif separar_linha_item[2] == 'vida':
                 personagem.set_vida(personagem.get_vida()+valor)
-                print(f'\n<<< Seus pontos de vida agora são {personagem.get_vida()}>>>')
+                time.sleep(2)
+                print(f'\n<<< Seus pontos de vida agora são {personagem.get_vida()} >>>')
                 
             elif separar_linha_item[2] == 'magia':
                 personagem.set_magia(personagem.get_magia()+valor)
-                print(f'\n<<< Seu novo nível de magia é {personagem.get_magia()}>>>')
+                time.sleep(2)
+                print(f'\n<<< Seu novo nível de magia é {personagem.get_magia()} >>>')
         
 
 def batalha(inimigo, personagem):
+    time.sleep(2)
     print('\n')
     print('--------' * 10)
+    time.sleep(2)
     print(f'<<< {inimigo.get_nome()} está se preparando para uma batalha!! >>>')
     
     batalha = True
     
     while batalha:
+        time.sleep(.5)
         print('Escolha seu ataque:')
+        time.sleep(.5)
         print('[A] Arma de combate\n[C] Cajado de Magia')
+        time.sleep(.5)
         op = str(input('[>>] Digite aqui: ')).upper()
         
         while op != 'A' and op != 'C':
             print('----- Opção inválida -----')
             print('Escolha seu ataque:')
+            time.sleep(.5)
             print('[A] Arma de combate\n[C] Cajado de Magia')
+            time.sleep(.5)
             op = str(input('\n[>>] Digite aqui: ')).upper()
             
         if op == 'A':
@@ -278,9 +309,13 @@ def batalha(inimigo, personagem):
         
         if acerto == True:
             inimigo.set_vida(inimigo.get_vida() - dano)
+            time.sleep(2)
             print(f'\n>>> Você acerta o inimigo deixando ele com {inimigo.get_vida()} pontos de vida! <<<')
         
-        else: print('\n>>> Você erra o ataque <<<')
+        
+        else:
+            time.sleep(2)
+            print('\n>>> Você erra o ataque <<<')
         
         inimigo_morto = esta_morto(inimigo.get_vida())
         
@@ -293,11 +328,15 @@ def batalha(inimigo, personagem):
                 batalha = False
                 return False
 
-            else: print(f'\n>>> A vida restante do seu personagem é {personagem.get_vida()}!!<<<')
+            else:
+                time.sleep(2)
+                print(f'\n>>> A vida restante do seu personagem é {personagem.get_vida()}!!<<<')
 
         else:
             batalha = False
+            time.sleep(2)
             print('\n>>> ------ Parabéns, você derrotou esse inimigo !!! -------- <<<')
+            input('[ENTER]')
             loot(personagem.get_sorte(), personagem)
             
             return True
@@ -305,9 +344,13 @@ def batalha(inimigo, personagem):
 
 def fim_de_jogo(inimigo_morto=bool):
     if inimigo_morto == True:
+        time.sleep(.5)
         print('\n<< Está na hora de outra batalha! >>')
     
     else:
+        time.sleep(.5)
         print('\n<< Você foi derrotado! >>')
+        time.sleep(.5)
         print('\n========== FIM DE JOGO ==========')
+        time.sleep(.5)
         exit()
