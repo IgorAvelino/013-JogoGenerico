@@ -1,0 +1,4 @@
+Escudo de Couro,10,
+Escudo de Ferro,15,
+Escudo de Ouro,20,
+Escudo de Metal Pesado,40,

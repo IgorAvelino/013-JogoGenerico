@@ -73,22 +73,22 @@ def criar_heroi():
     if op == 'M':
         ataque_heroi += 100
         magia_heroi = 50
-        arma_heroi = 'Machado'
+        arma_heroi = 'machado'
     
     elif op == 'E':
         ataque_heroi += 100
         magia_heroi = 50
-        arma_heroi = 'Espada'
+        arma_heroi = 'espada'
     
     elif op == 'A':
         ataque_heroi += 100
         magia_heroi = 50
-        arma_heroi = 'Arco'
+        arma_heroi = 'arco'
     
     elif op == 'C':
         ataque_heroi += 50
         magia_heroi = 200
-        arma_heroi = 'Cajado'
+        arma_heroi = 'cajado'
     
     print('\n')
     print('--------' * 10)
