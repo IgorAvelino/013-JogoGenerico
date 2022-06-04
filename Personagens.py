@@ -46,7 +46,7 @@ def criar_heroi():
     
     if op == "E":
         ataque_heroi = 50
-        defesa_heroi = 100
+        defesa_heroi = 80
     
     elif op == "L":
         ataque_heroi = 100
