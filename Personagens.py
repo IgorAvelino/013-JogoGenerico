@@ -1,5 +1,4 @@
 import math
-from operator import truediv
 import random
 import time
 
