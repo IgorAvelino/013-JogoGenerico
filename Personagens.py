@@ -376,7 +376,7 @@ def fim_de_jogo(inimigo_morto=bool):
 
 
 def gerar_level(personagem, level):
-    num_max_de_inimigos = math.ceil(level * 3)
+    num_max_de_inimigos = math.ceil(level * 2)
     
     for i in range(0, num_max_de_inimigos):
         chance_boss = random.randint(1,10)
@@ -387,3 +387,7 @@ def gerar_level(personagem, level):
         
         luta = batalha(gerar_inimigo(lv_boss), personagem)
         fim_de_jogo(luta)
+    
+    if personagem.get_vida() < 100:
+        personagem.set_vida(100)
+        print('\n>>> VIDA RESTAURADA PARA 100 PONTOS <<<')

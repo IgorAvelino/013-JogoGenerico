@@ -27,8 +27,9 @@ if __name__ == "__main__":
     print('\n --------- <<< LEVEL FINAL >>> ---------')
     Personagens.gerar_level(personagem, 3)
     
+    print('\n')
     print('======================================================')
-    print(f' ================= VOCÊ VENCEU O JOGO =================')
+    print(f'================= VOCÊ VENCEU O JOGO =================')
     print('======================================================')
 
     input('[ENTER]')
