@@ -36,7 +36,7 @@ def criar_heroi():
     print('--------' * 10)
     print('Com qual modo de jogo você se identifica mais?')
     time.sleep(.5)
-    print('[E] Estratégico\n[L] Lutador')
+    print('[E] Estratégico (+ Defesa)\n[L] Lutador     (+ Ataque)')
     time.sleep(.5)
     op = str(input('\n[>>] Digite aqui: ')).upper()
 
