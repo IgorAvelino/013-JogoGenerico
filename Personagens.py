@@ -376,9 +376,8 @@ def fim_de_jogo(inimigo_morto=bool):
 
 
 def gerar_level(personagem, level):
-    num_max_de_inimigos = math.ceil(level * 2)
     
-    for i in range(0, num_max_de_inimigos):
+    for i in range(0, level):
         chance_boss = random.randint(1,10)
         if chance_boss > 7:
             lv_boss = True
