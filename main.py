@@ -2,6 +2,9 @@ import Personagens
 
 
 if __name__ == "__main__":
+    
+    print('\n')
+    print('Você está em busca de aventuras e entra em uma caverna misteriosa, o clima assustador e desafiante te anima a\nentrar e descobrir o que você pode encontar...')
 
     dados = Personagens.criar_heroi()
     personagem = Personagens.Heroi(100, dados[0], dados[1], dados[2], dados[3], dados[4], dados[5])
